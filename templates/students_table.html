@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}" />
+    <title>Eligible Students</title>
+</head>
+<body>
+    <h1>Eligible Students for Placement</h1>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="scrollable-container">
+                <table>
+                    <thead class="table-header">
+                        <tr>
+                            <th>Name</th>
+                            <th>SRN</th>
+                            <th>CGPA</th>
+                            <th>Stream</th>
+                            <th>Placement Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ student.Name }}</td>
+                            <td>{{ student.SRN }}</td>
+                            <td>{{ student.CGPA }}</td>
+                            <td>{{ student.Stream }}</td>
+                            <td>Eligible</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

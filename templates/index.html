@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Placement Prediction</title>
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        // Retrieve form values
+        const stream = document.getElementById('stream').value;
+        const cgpa = document.getElementById('cgpa').value;
+        const backlogs = document.getElementById('backlogs').value;
+
+        // Create an XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+
+        // Configure it: GET-request for the URL /predict
+        xhr.open('GET', `/predict?stream=${stream}&cgpa=${cgpa}&backlogs=${backlogs}`, true);
+
+        // Set up a function to handle the response
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            // Parse the JSON response
+            const response = JSON.parse(xhr.responseText);
+            // Display the result in an alert
+            showAlert(`you are ${response.result} for placements`);
+          } else {
+            showAlert('Error occurred while processing your request.');
+          }
+        };
+
+        // Send the request
+        xhr.send();
+      }
+      function showAlert(message) {
+        const alertBox = document.getElementById('alertBox');
+        const alertText = document.getElementById('alertText');
+        alertText.innerText = message;
+        alertBox.style.display = 'block';
+      }
+
+      function closeAlert() {
+        document.getElementById('alertBox').style.display = 'none';
+      }
+    </script>
+  </head>
+  <body>
+    <div class="intro">
+      <h1>Welcome to Placement Prediction App</h1>
+    </div>
+    <form id="eligibilityForm" onsubmit="handleSubmit(event)">
+        <h3>CHECK YOUR ELIGIBILITY</h3>
+      <p>
+        <b style="color: orange;">Select Stream</b>
+      </p>
+      <select name="stream" id="stream" placeholder="Select" required>
+        <option value="" disabled selected>Please select</option>
+        <option value="0">IT</option>
+        <option value="1">Computer science.</option>
+        <option value="2">Electronics</option>
+        <option value="3">Mechanical</option>
+      </select>
+      <br />
+      
+      <p><b style="color: orange;">Enter CGPA</b></p>
+      <input type="number" placeholder="enter CGPA" step="0.01" name="cgpa" id="cgpa" min="0" pattern="^[0-9]\d*$" required/>
+      <br />
+      
+      <p><b style="color: orange;">Enter Backlogs</b></p>
+      <input type="number" placeholder="enter Backlogs" name="backlogs" id="backlogs" min="0" pattern="^[0-9]\d*$" required/>
+      <br />
+      
+      <button type="submit">Submit</button>
+      
+      <br/>
+      <button type="button" onclick="window.location.href='{{ url_for('eligible_students') }}'">Click Here to Display Eligible Students</button>
+    </form>
+    <div id="alertBox" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAlert()">&times;</span>
+        <p id="alertText"></p>
+      </div>
+    </div>
+  </body>
+</html>

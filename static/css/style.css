@@ -1,0 +1,250 @@
+body,
+html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    border: 2px solid black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form h3 {
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #FFD700, #FF8C00, #FF4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+form p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+input[type="number"]:focus,
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 4px #007bff;
+    border-color: #007bff;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #FFD700, #FF8C00, #FF4500);
+    color: black;
+    font-weight: bolder;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #FFECB3, #FFD700, #FFA500);
+    color: black;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+button[type="button"] {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.end {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: orange;
+    margin-bottom: 80px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+h2 {
+    font-size: 24px;
+    color: black;
+    margin-top: 0;
+}
+
+.intro,
+.ans,
+.end {
+    text-align: center;
+}
+
+.ans,
+.out {
+    padding: 10px;
+}
+
+.out {
+    font-size: 24px;
+    color: #fff700;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Add background color for contrast */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 20px; /* Increase padding for better spacing */
+    margin: 20px; /* Add margin for spacing around the result */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow for a floating effect */
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(255, 223, 186, 0.8); /* Light sunlight background */
+    z-index: 1000; /* Sit on top */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out; /* Smooth fade-in effect */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: linear-gradient(135deg, #ffcc00, #ff9900); /* Bright gradient background */
+    color: #fff; /* White text color for contrast */
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 450px;
+    margin: auto;
+    position: relative; /* Position close button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Strong shadow for a floating effect */
+  }
+  
+  /* Close Button */
+  .close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #ffcc00; /* Sunlight yellow on hover */
+  }
+  
+  /* Modal Text */
+  #alertText {
+    font-size: 22px;
+    text-align: center;
+    margin: 0;
+    font-weight: bolder; /* Emphasize the result */
+    color: #fff; /* White color for better readability */
+  }
+  
+  /* Custom Alert Button */
+  .alert-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ff9900, #ffcc00, #ff9900); /* Sunlight gradient */
+    color: #fff;
+    font-weight: bolder;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase; /* Uppercase text for emphasis */
+  }
+  
+  .alert-button:hover {
+    background: linear-gradient(to right, #ffcc00, #ff9900, #ffcc00); /* Brighter gradient on hover */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Form and Button Styles */
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    border: 2px solid black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Ensure the button style in the form */
+  button[type="submit"] {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,91 @@
+body,
+html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align children to the top */
+    height: 100vh; /* Full viewport height */
+}
+
+.table-container {
+    text-align: center;
+    margin-top: 20px; /* Space from the top of the page */
+}
+
+h1 {
+    font-size: 36px;
+    color: orange; /* Heading text color */
+    padding: 10px 20px; /* Adds space around the text inside the background */
+    background-color: rgba(0, 0, 0, 0.7); /* Background color with some transparency */
+    border-radius: 12px; /* Rounded corners */
+    display: inline-block; /* Ensures the background fits around the text */
+    margin-bottom: 100px; /* Space below the heading */
+}
+
+.table-wrapper {
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 80%; /* Adjust width as needed */
+    max-width: 1000px; /* Maximum width for the table wrapper */
+}
+
+.scrollable-container {
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Vertical scroll */
+    padding: 10px; /* Padding around the table */
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    color: #fff;
+    z-index: 2; /* Ensures header is above the table content */
+}
+
+tbody {
+    display: block;
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Vertical scroll */
+}
+
+tbody td, thead th {
+    padding: 12px;
+    text-align: center;
+}
+
+thead {
+    background-color: rgba(0, 0, 0, 0.7); /* Same as thead for consistency */
+    color: #fff;
+    display: table;
+    width: 100%;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1); /* Light gray for alternating rows */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Very light gray for alternating rows */
+}
